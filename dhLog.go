@@ -2,7 +2,7 @@
  * @Author       : Symphony zhangleping@cezhiqiu.com
  * @Date         : 2024-03-28 05:53:53
  * @LastEditors  : Symphony zhangleping@cezhiqiu.com
- * @LastEditTime : 2024-05-18 13:58:16
+ * @LastEditTime : 2024-05-18 14:05:40
  * @FilePath     : /v2/go-common-v2-dh-log/dhLog.go
  * @Description  :
  *
@@ -16,6 +16,11 @@ import (
 	"log/slog"
 	"runtime"
 )
+
+func DebugAny(params any) {
+	encodeData, _ := json.MarshalIndent(params, "", "    ")
+	Info(string(encodeData))
+}
 
 func Info(msg string, args ...any) {
 	commonWriteLog("Info", msg, args...)
