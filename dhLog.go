@@ -2,8 +2,8 @@
  * @Author       : Symphony zhangleping@cezhiqiu.com
  * @Date         : 2024-03-28 05:53:53
  * @LastEditors  : Symphony zhangleping@cezhiqiu.com
- * @LastEditTime : 2024-05-05 20:14:20
- * @FilePath     : /dahe/go-common/dh-log/dhLog.go
+ * @LastEditTime : 2024-05-18 13:58:16
+ * @FilePath     : /v2/go-common-v2-dh-log/dhLog.go
  * @Description  :
  *
  * Copyright (c) 2024 by 大合前研, All Rights Reserved.
@@ -49,15 +49,16 @@ func commonWriteLog(LogType, msg string, args ...any) {
 
 	logInfo := fmt.Sprintf("\n%s%s%s", funcName, fileName, LineNum)
 
+	msg = fmt.Sprintf(msg, args...)
 	switch LogType {
 	case "Info":
-		slog.Info(logInfo+" "+msg, args...)
+		slog.Info(logInfo + " " + msg)
 	case "Error":
-		slog.Error(logInfo+" "+msg, args...)
+		slog.Error(logInfo + " " + msg)
 	case "Warn":
-		slog.Warn(logInfo+" "+msg, args...)
+		slog.Warn(logInfo + " " + msg)
 	default:
 		// This case will execute when number is not 1, 2, or 3
-		slog.Info(logInfo+" "+msg, args...)
+		slog.Info(logInfo + " " + msg)
 	}
 }
