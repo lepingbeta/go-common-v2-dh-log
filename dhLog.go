@@ -2,8 +2,8 @@
  * @Author       : Symphony zhangleping@cezhiqiu.com
  * @Date         : 2024-03-28 05:53:53
  * @LastEditors  : Symphony zhangleping@cezhiqiu.com
- * @LastEditTime : 2024-05-18 14:05:40
- * @FilePath     : /v2/go-common-v2-dh-log/dhLog.go
+ * @LastEditTime : 2024-05-29 13:25:12
+ * @FilePath     : /inner-user-center-api/data/mycode/dahe/go-common/v2/go-common-v2-dh-log/dhLog.go
  * @Description  :
  *
  * Copyright (c) 2024 by 大合前研, All Rights Reserved.
@@ -19,7 +19,8 @@ import (
 
 func DebugAny(params any) {
 	encodeData, _ := json.MarshalIndent(params, "", "    ")
-	Info(string(encodeData))
+
+	commonWriteLog("Info", string(encodeData))
 }
 
 func Info(msg string, args ...any) {
